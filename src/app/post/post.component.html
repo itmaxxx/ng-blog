@@ -2,7 +2,7 @@
   <h2 class="blog-post-title"><a routerLink="/post/{{ postId }}">{{ title }}</a></h2>
   <p class="blog-post-meta">December 14, 2020 by <a href="#">@itmax</a></p>
 
-  <p class="blog-post-text">{{ text }}</p>
+  <p class="blog-post-text" ng-bind-html="formattedText">{{ text.substr(0, 160) }}...</p>
 
   <a class="blog-post-read-more" routerLink="/post/{{ postId }}">Read more...</a>
 </article>
