@@ -5,7 +5,7 @@ export class Post {
 
   constructor() {
     this.id = 1;
-    this.title = "Placeholder";
-    this.text = "Placeholder";
+    this.title = "null";
+    this.text = "null";
   }
 }

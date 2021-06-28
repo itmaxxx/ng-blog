@@ -1,8 +1,8 @@
-<div class="card mb-3">
-  <div class="card-body">
-    <h5 class="card-title">{{ title }}</h5>
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-text">{{ text }}</p>
-    <a href="/post/{{ postId }}" class="card-link">Read more</a>
-  </div>
-</div>
+<article class="blog-post">
+  <h2 class="blog-post-title"><a routerLink="/post/{{ postId }}">{{ title }}</a></h2>
+  <p class="blog-post-meta">December 14, 2020 by <a href="#">@itmax</a></p>
+
+  <p class="blog-post-text">{{ text }}</p>
+
+  <a class="blog-post-read-more" routerLink="/post/{{ postId }}">Read more...</a>
+</article>

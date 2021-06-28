@@ -1,15 +1,7 @@
-.blog-post {
-  margin-bottom: 4rem;
-}
 .blog-post-title {
-  margin-bottom: .25rem;
   font-family: charter, Georgia, Cambria, "Times New Roman", Times, serif;
   line-height: 60px;
   font-size: 48px;
-}
-.blog-post-title a {
-  text-decoration: none;
-  color: #212529;
 }
 .blog-post-meta {
   line-height: 20px;
@@ -23,10 +15,5 @@
   word-break: break-word;
   overflow-wrap: break-word;
   letter-spacing: -0.003em;
-  font-family: charter, Georgia, Cambria, "Times New Roman", Times, serif;
-}
-.blog-post-read-more {
-  line-height: 20px;
-  font-size: 19px;
   font-family: charter, Georgia, Cambria, "Times New Roman", Times, serif;
 }
