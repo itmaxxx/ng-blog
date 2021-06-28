@@ -5,6 +5,7 @@ export class Post {
   title: string;
   text: string;
   picture: string;
+  date: number;
   author: Author;
 
   constructor() {
@@ -12,6 +13,7 @@ export class Post {
     this.title = "null";
     this.text = "null";
     this.picture = "null";
+    this.date = Date.now();
     this.author = new Author();
   }
 }
