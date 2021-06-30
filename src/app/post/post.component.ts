@@ -10,6 +10,8 @@ import { Post } from '../models/post';
 export class PostComponent implements OnInit {
 
   @Input() post: Post = { id: 0, title: 'null', text: 'null', picture: 'null', date: Date.now(), author: new Author() };
+
+  formattedDate: string = '';
   // @Input() id: number = 0;
   // @Input() title: string = 'null';
   // @Input() text: string = 'null';
@@ -18,6 +20,9 @@ export class PostComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    const options: Intl.DateTimeFormatOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+
+    this.formattedDate = new Date(this.post.date).toLocaleDateString('en-UK', options);
   }
 
 }

@@ -1,9 +1,9 @@
 <article class="blog-post">
   <h2 class="blog-post-title"><a routerLink="/post/{{ post.id }}">{{ post.title }}</a></h2>
-  <p class="blog-post-meta">{{ post.date }} by <a href="#">@{{ post.author.username }}</a></p>
+  <p class="blog-post-meta">{{ formattedDate }} by <a href="#">@{{ post.author.username }}</a></p>
 
-  <div class="col-12 my-2 blog-post-image rounded">
-    <img [src]="post.picture" [alt]="post.title" />
+  <div class="col-12 mt-2 mb-4 blog-post-image">
+    <img [src]="post.picture" [alt]="post.title" class="rounded" />
   </div>
 
   <p class="blog-post-text" ng-bind-html="formattedText">{{ post.text.split(' ').slice(0, 26).join(' ') }}...</p>

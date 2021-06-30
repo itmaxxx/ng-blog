@@ -15,6 +15,7 @@ export class BlogPostComponent implements OnInit {
   id: number = 0;
 
   post: Post = new Post();
+  formattedDate: string = '';
 
   ngOnInit(): void {
     let n = this.router.url.lastIndexOf('/');
@@ -23,6 +24,10 @@ export class BlogPostComponent implements OnInit {
     this.postsService.getPost(this.id).subscribe(post => {
       this.post = post
     });
+
+    const options: Intl.DateTimeFormatOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+
+    this.formattedDate = new Date(this.post.date).toLocaleDateString('en-UK', options);
   }
 
 }
