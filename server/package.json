@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev:start": "npx ts-node ./src/index.ts",
-    "dev": "nodemon --watch src -e ts,ejs --exec npm run dev:start"
+    "start": "npx ts-node ./src/index.ts",
+    "dev": "nodemon --watch src -e ts,ejs --exec npm run start"
   },
   "author": "",
   "license": "ISC",
