@@ -18,6 +18,10 @@ export class PostsService {
     return this.http.get<Post[]>(this.baseUrl + "api/posts");
   }
 
+  getRelatedPosts(id: number) : Observable<Post[]>{
+    return this.http.get<Post[]>(this.baseUrl + "api/related-posts/" + id);
+  }
+
   searchPost(query: string) : Observable<Post[]>{
     return this.http.get<Post[]>(this.baseUrl + "api/posts?search=" + query);
   }

@@ -12,10 +12,6 @@ export class PostComponent implements OnInit {
   @Input() post: Post = { id: 0, title: 'null', text: 'null', picture: 'null', date: Date.now(), author: new Author() };
 
   formattedDate: string = '';
-  // @Input() id: number = 0;
-  // @Input() title: string = 'null';
-  // @Input() text: string = 'null';
-  // @Input() picture: string = 'null';
 
   constructor() { }
 

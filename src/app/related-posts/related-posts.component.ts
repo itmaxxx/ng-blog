@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Post } from '../models/post';
+import { PostsService } from '../services/posts.service';
 
 @Component({
   selector: 'app-related-posts',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RelatedPostsComponent implements OnInit {
 
-  constructor() { }
+  @Input() id: number = 0;
+
+  constructor(private postsService: PostsService) { }
+
+  relatedPosts: Post[] = [];
 
   ngOnInit(): void {
+    this.postsService.getRelatedPosts(this.id).subscribe(relatedPosts => {
+      this.relatedPosts = relatedPosts
+    });
   }
 
 }
