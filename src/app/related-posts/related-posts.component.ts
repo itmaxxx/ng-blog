@@ -16,6 +16,8 @@ export class RelatedPostsComponent implements OnInit {
   relatedPosts: Post[] = [];
 
   ngOnInit(): void {
+    console.log(this.id);
+
     this.postsService.getRelatedPosts(this.id).subscribe(relatedPosts => {
       this.relatedPosts = relatedPosts
     });

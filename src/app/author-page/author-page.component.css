@@ -1,0 +1,22 @@
+.author-title {
+  text-align: center;
+}
+.author-image {
+  height: 300px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.author-image img {
+  max-height: 300px;
+}
+.author-text {
+  font-weight: 400;
+  font-size: 21px;
+  line-height: 32px;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  letter-spacing: -0.003em;
+  font-family: charter, Georgia, Cambria, "Times New Roman", Times, serif;
+}

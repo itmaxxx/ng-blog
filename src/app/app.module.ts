@@ -17,6 +17,7 @@ import { RelatedPostComponent } from './related-post/related-post.component';
 import { RelatedPostsComponent } from './related-posts/related-posts.component';
 import { ContactMeComponent } from './contact-me/contact-me.component';
 import { AboutComponent } from './about/about.component';
+import { AuthorPageComponent } from './author-page/author-page.component';
 
 const appRoutes: Routes = [
   {
@@ -30,6 +31,9 @@ const appRoutes: Routes = [
   },
   {
     path: 'post/:id', component: BlogPostComponent
+  },
+  {
+    path: 'author/:username', component: AuthorPageComponent
   },
   {
     path: '**', component: NotFoundComponent
@@ -51,7 +55,8 @@ const appRoutes: Routes = [
     RelatedPostComponent,
     RelatedPostsComponent,
     ContactMeComponent,
-    AboutComponent
+    AboutComponent,
+    AuthorPageComponent
   ],
   imports: [
     BrowserModule,

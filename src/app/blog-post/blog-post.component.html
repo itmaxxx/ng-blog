@@ -1,8 +1,8 @@
 <main class="container my-5">
   <div class="row d-flex justify-content-center">
-    <article class="blog-post col-md-10 col-lg-8 col-xl-6">
+    <article class="blog-post col-md-10 col-lg-8 col-xl-6" *ngIf="post.title != 'null'">
       <h2 class="blog-post-title">{{ post.title }}</h2>
-      <p class="blog-post-meta">{{ formattedDate }} by <a href="#">@{{ post.author.username }}</a></p>
+      <p class="blog-post-meta">{{ formattedDate }} by <a routerLink="/author/{{ post.author.username }}">@{{ post.author.username }}</a></p>
 
       <div class="col-12 mt-2 mb-4 blog-post-image">
         <img [src]="post.picture" [alt]="post.title" class="rounded" />
@@ -11,8 +11,9 @@
       <p class="blog-post-text">{{ post.text }}</p>
 
       <div class="row mt-5">
-        <app-related-posts></app-related-posts>
+        <app-related-posts [id]="post.id"></app-related-posts>
       </div>
     </article>
+    <app-not-found *ngIf="post.title == 'null'"></app-not-found>
   </div>
 </main>

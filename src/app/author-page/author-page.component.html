@@ -1,0 +1,16 @@
+<main class="container my-5">
+  <div class="row d-flex justify-content-center">
+    <article class="author col-md-10 col-lg-8 col-xl-6" *ngIf="author.username != 'null'">
+      <h2 class="author-title">{{ author.fullname }}'s page</h2>
+
+      <div class="col-12 mt-2 mb-4 author-image">
+        <img [src]="author.picture" [alt]="author.username" class="rounded" />
+      </div>
+
+      <h3>About me</h3>
+      <p class="author-text">{{ author.about }}</p>
+
+    </article>
+    <app-not-found *ngIf="author.username == 'null'"></app-not-found>
+  </div>
+</main>

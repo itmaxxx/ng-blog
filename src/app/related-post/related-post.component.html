@@ -4,6 +4,6 @@
     <h3 class="mb-0">{{ post.title }}</h3>
     <div class="mb-1 text-muted">{{ formattedDate }}</div>
     <p class="card-text mb-auto">{{ post.text.split(' ').slice(0, 8).join(' ') }}</p>
-    <a routerLink="/post/{{ post.id }}" class="stretched-link">Read more...</a>
+    <a href="/post/{{ post.id }}" class="stretched-link">Read more...</a>
   </div>
 </div>

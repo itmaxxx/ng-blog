@@ -1,6 +1,6 @@
 <article class="blog-post">
   <h2 class="blog-post-title"><a routerLink="/post/{{ post.id }}">{{ post.title }}</a></h2>
-  <p class="blog-post-meta">{{ formattedDate }} by <a href="#">@{{ post.author.username }}</a></p>
+  <p class="blog-post-meta">{{ formattedDate }} by <a routerLink="/author/{{ post.author.username }}">@{{ post.author.username }}</a></p>
 
   <div class="col-12 mt-2 mb-4 blog-post-image">
     <img [src]="post.picture" [alt]="post.title" class="rounded" />
