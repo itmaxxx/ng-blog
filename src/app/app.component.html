@@ -1,5 +1,5 @@
 <app-nav-bar title="Max's blog"></app-nav-bar>
 
-<router-outlet></router-outlet>
+<router-outlet (activate)="onActivate($event)"></router-outlet>
 
 <app-footer></app-footer>
