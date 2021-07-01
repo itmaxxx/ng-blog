@@ -12,8 +12,14 @@ export class PostsService {
 
   constructor(private http: HttpClient) { }
 
+  posts: Post[] = [];
+
   getPosts() : Observable<Post[]>{
     return this.http.get<Post[]>(this.baseUrl + "api/posts");
+  }
+
+  searchPost(query: string) : Observable<Post[]>{
+    return this.http.get<Post[]>(this.baseUrl + "api/posts?search=" + query);
   }
 
   getPost(id: number) : Observable<Post>{
