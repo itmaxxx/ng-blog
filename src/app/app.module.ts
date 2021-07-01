@@ -15,10 +15,18 @@ import { SliderComponent } from './slider/slider.component';
 import { AboutMeComponent } from './about-me/about-me.component';
 import { RelatedPostComponent } from './related-post/related-post.component';
 import { RelatedPostsComponent } from './related-posts/related-posts.component';
+import { ContactMeComponent } from './contact-me/contact-me.component';
+import { AboutComponent } from './about/about.component';
 
 const appRoutes: Routes = [
   {
     path: '', component: HomeComponent
+  },
+  {
+    path: 'contact-me', component: ContactMeComponent
+  },
+  {
+    path: 'about', component: AboutComponent
   },
   {
     path: 'post/:id', component: BlogPostComponent
@@ -41,7 +49,9 @@ const appRoutes: Routes = [
     SliderComponent,
     AboutMeComponent,
     RelatedPostComponent,
-    RelatedPostsComponent
+    RelatedPostsComponent,
+    ContactMeComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

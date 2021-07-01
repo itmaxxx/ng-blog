@@ -9,8 +9,6 @@ export class SliderComponent implements OnInit {
 
   @Input() title: string = '';
   @Input() text: string = '';
-  @Input() link: string = '';
-  @Input() linkText: string = '';
 
   constructor() { }
 
