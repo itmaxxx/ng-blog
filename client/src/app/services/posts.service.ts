@@ -2,34 +2,33 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, JsonpClientBackend } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Post } from '../models/post';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostsService {
 
-  private baseUrl = 'http://localhost:4300/';
-
   constructor(private http: HttpClient) { }
 
   getPosts() : Observable<Post[]>{
-    return this.http.get<Post[]>(this.baseUrl + "api/posts");
+    return this.http.get<Post[]>(environment.apiURL + "api/posts");
   }
 
   getRelatedPosts(id: number) : Observable<Post[]>{
-    return this.http.get<Post[]>(this.baseUrl + "api/related-posts/" + id);
+    return this.http.get<Post[]>(environment.apiURL + "api/related-posts/" + id);
   }
 
   searchPost(query: string) : Observable<Post[]>{
-    return this.http.get<Post[]>(this.baseUrl + "api/posts?search=" + query);
+    return this.http.get<Post[]>(environment.apiURL + "api/posts?search=" + query);
   }
 
   getPost(id: number) : Observable<Post>{
-    return this.http.get<Post>(this.baseUrl + "api/posts/" + id);
+    return this.http.get<Post>(environment.apiURL + "api/posts/" + id);
   }
 
   createPost(post: Post) : Observable<Post>{
-    return this.http.post<Post>(this.baseUrl + "api/posts/create", post);
+    return this.http.post<Post>(environment.apiURL + "api/posts/create", post);
   }
 
 }
