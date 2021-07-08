@@ -3,6 +3,8 @@ import path from "path";
 import cors from "cors";
 import { Post } from "./models/post";
 import { Author } from "./models/author";
+import {Comment} from "./models/comment";
+import {isArray} from "util";
 const app = express();
 const port = 4300;
 
@@ -10,7 +12,15 @@ app.use(cors());
 app.use(express.json());
 
 const authors: Author[] = [
-    { username: 'itmax', fullname: 'Max Dmitriev', picture: 'https://avatars.githubusercontent.com/u/38819868?v=4', about: 'Full Stack Web Developer' }
+    { username: 'itmax', fullname: 'Max Dmitriev', picture: 'https://avatars.githubusercontent.com/u/38819868?v=4', about: 'Full Stack Web Developer' },
+    { username: 'dan_abramov', fullname: 'Dan Abramov', picture: 'https://pbs.twimg.com/profile_images/1336281436685541376/fRSl8uJP_400x400.jpg', about: 'JavaScript Developer' }
+];
+
+const comments: Comment[] = [
+    { id: 1, text: 'Welcome back!', postID: 3, author: authors[0], date: Date.now() },
+    { id: 2, text: 'Beautiful post!', postID: 2, author: authors[0], date: Date.now() },
+    { id: 3, text: 'Nice words', postID: 2, author: authors[0], date: Date.now() },
+    { id: 4, text: 'Your code is so bad', postID: 3, author: authors[1], date: Date.now() }
 ];
 
 const posts: Post[] = [
@@ -74,7 +84,7 @@ app.get("/api/related-posts/:id", (req, res) => {
     res.json(result);
 });
 
-app.get("/api/post/:id", (req, res) => {
+app.get("/api/posts/:id", (req, res) => {
     const id: number = parseInt(req.params.id);
 
     res.json(posts.find(post => post.id === id));
@@ -84,6 +94,35 @@ app.get("/api/authors/:username", (req, res) => {
     const username: string = req.params.username;
 
     res.json(authors.find(author => author.username === username));
+})
+
+app.get("/api/comments/:postID", (req, res) => {
+    const postID: number = parseInt(req.params.postID);
+
+    res.json(comments.filter(comment => comment.postID === postID).sort((a1, a2) => {
+        if (a1.id > a2.id) {
+            return -1;
+        } else if (a1.id < a2.id) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }));
+})
+
+app.post("/api/comments/create", (req, res) => {
+    const parsedComment: Comment = req.body;
+
+    const comment = new Comment();
+    comment.text = parsedComment.text;
+    comment.postID = parsedComment.postID;
+    // get max id and increment it
+    comment.id = Math.max.apply(null, comments.map(p => p.id)) + 1;
+    comment.author = authors.find(author => author.username === parsedComment.author.username) || new Author();
+
+    comments.push(comment);
+
+    res.json(comment);
 })
 
 app.listen(port, () => {

@@ -7,11 +7,15 @@
       <div class="col-12 mt-2 mb-4 blog-post-image">
         <img [src]="post.picture" [alt]="post.title" class="rounded" />
       </div>
-    
+
       <p class="blog-post-text">{{ post.text }}</p>
 
       <div class="row mt-5">
         <app-related-posts [id]="post.id"></app-related-posts>
+      </div>
+
+      <div class="row mt-5">
+        <app-comments [postID]="post.id"></app-comments>
       </div>
     </article>
     <app-not-found *ngIf="post.title == 'null'"></app-not-found>

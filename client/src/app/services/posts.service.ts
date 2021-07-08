@@ -25,7 +25,7 @@ export class PostsService {
   }
 
   getPost(id: number) : Observable<Post>{
-    return this.http.get<Post>(this.baseUrl + "api/post/" + id);
+    return this.http.get<Post>(this.baseUrl + "api/posts/" + id);
   }
 
   createPost(post: Post) : Observable<Post>{

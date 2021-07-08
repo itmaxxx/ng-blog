@@ -1,0 +1,16 @@
+<div class="col-md-12 mb-3">
+  <div class="col">
+    <h3 class="mb-3">Comments</h3>
+    <app-create-comment [postID]="postID"></app-create-comment>
+
+    <div class="mt-3" *ngFor="let comment of comments; let i = index">
+      <app-comment [comment]="comment"></app-comment>
+    </div>
+
+    <div *ngIf="comments.length === 0">
+      <p class="no-posts-found text-center my-5">
+        No comments yet, be the first one
+      </p>
+    </div>
+  </div>
+</div>

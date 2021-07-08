@@ -9,7 +9,7 @@ import { Post } from '../models/post';
 })
 export class PostComponent implements OnInit {
 
-  @Input() post: Post = { id: 0, title: 'null', text: 'null', picture: 'null', date: Date.now(), author: new Author() };
+  @Input() post: Post = new Post();
 
   formattedDate: string = '';
 

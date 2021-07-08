@@ -19,6 +19,9 @@ import { ContactMeComponent } from './contact-me/contact-me.component';
 import { AboutComponent } from './about/about.component';
 import { AuthorPageComponent } from './author-page/author-page.component';
 import { CreatePostComponent } from './create-post/create-post.component';
+import { CommentsComponent } from './comments/comments.component';
+import { CommentComponent } from './comment/comment.component';
+import { CreateCommentComponent } from './create-comment/create-comment.component';
 
 const appRoutes: Routes = [
   {
@@ -61,7 +64,10 @@ const appRoutes: Routes = [
     ContactMeComponent,
     AboutComponent,
     AuthorPageComponent,
-    CreatePostComponent
+    CreatePostComponent,
+    CommentsComponent,
+    CommentComponent,
+    CreateCommentComponent
   ],
   imports: [
     BrowserModule,
