@@ -11,6 +11,7 @@ import {Router} from "@angular/router";
 export class CreateCommentComponent implements OnInit {
 
   @Input() postID: number = -1;
+  @Output() loadComments = new EventEmitter();
 
   constructor(private commentsService: CommentsService, private router: Router) { }
 
@@ -41,7 +42,10 @@ export class CreateCommentComponent implements OnInit {
     }
 
     this.commentsService.createComment(comment).subscribe(comment => {
-      console.log(comment);
+      (document.getElementById('commentText') as HTMLInputElement).value = '';
+      (document.getElementById('commentAuthorUsername') as HTMLInputElement).value = '';
+
+      this.loadComments.emit();
     });
   }
 

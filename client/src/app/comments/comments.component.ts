@@ -21,10 +21,6 @@ export class CommentsComponent implements OnInit {
     });
   }
 
-  updateComments(): void {
-    this.loadComments();
-  }
-
   ngOnInit(): void {
     this.loadComments();
   }

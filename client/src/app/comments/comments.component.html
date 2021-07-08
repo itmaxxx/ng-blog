@@ -1,7 +1,7 @@
 <div class="col-md-12 mb-3">
   <div class="col">
     <h3 class="mb-3">Comments</h3>
-    <app-create-comment [postID]="postID"></app-create-comment>
+    <app-create-comment (loadComments)="loadComments()" [postID]="postID"></app-create-comment>
 
     <div class="mt-3" *ngFor="let comment of comments; let i = index">
       <app-comment [comment]="comment"></app-comment>
