@@ -8,12 +8,12 @@ export class Post {
   date: number;
   author: Author;
 
-  constructor() {
+  constructor(title: string = "null", picture: string = "null", text: string = "null", username: string = "null") {
     this.id = -1;
-    this.title = "null";
-    this.text = "null";
-    this.picture = "null";
+    this.title = title || "null";
+    this.text = text || "null";
+    this.picture = picture || "null";
     this.date = Date.now();
-    this.author = new Author();
+    this.author = new Author(username);
   }
 }

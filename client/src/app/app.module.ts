@@ -18,10 +18,14 @@ import { RelatedPostsComponent } from './related-posts/related-posts.component';
 import { ContactMeComponent } from './contact-me/contact-me.component';
 import { AboutComponent } from './about/about.component';
 import { AuthorPageComponent } from './author-page/author-page.component';
+import { CreatePostComponent } from './create-post/create-post.component';
 
 const appRoutes: Routes = [
   {
     path: '', component: HomeComponent
+  },
+  {
+    path: 'create-post', component: CreatePostComponent
   },
   {
     path: 'contact-me', component: ContactMeComponent
@@ -56,7 +60,8 @@ const appRoutes: Routes = [
     RelatedPostsComponent,
     ContactMeComponent,
     AboutComponent,
-    AuthorPageComponent
+    AuthorPageComponent,
+    CreatePostComponent
   ],
   imports: [
     BrowserModule,

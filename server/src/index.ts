@@ -7,6 +7,7 @@ const app = express();
 const port = 4300;
 
 app.use(cors());
+app.use(express.json());
 
 const authors: Author[] = [
     { username: 'itmax', fullname: 'Max Dmitriev', picture: 'https://avatars.githubusercontent.com/u/38819868?v=4', about: 'Full Stack Web Developer' }
@@ -27,8 +28,32 @@ app.get("/api/posts", (req, res) => {
 
         res.json(result);
     } else {
-        res.json(posts);
+        res.json(posts.sort((a1, a2) => {
+            if (a1.id > a2.id) {
+                return -1;
+            } else if (a1.id < a2.id) {
+                return 1;
+            } else {
+                return 0;
+            }
+        }));
     }
+});
+
+app.post("/api/posts/create", (req, res) => {
+    const parsedPost: Post = req.body;
+
+    const post = new Post();
+    post.title = parsedPost.title;
+    post.picture = parsedPost.picture;
+    post.text = parsedPost.text;
+    // get max post id and increment it
+    post.id = Math.max.apply(null, posts.map(p => p.id)) + 1;
+    post.author = authors.find(author => author.username === parsedPost.author.username) || new Author();
+
+    posts.push(post);
+
+    res.json(post);
 });
 
 const random = (min: number, max: number) => Math.floor(Math.random() * (max - min) + min);

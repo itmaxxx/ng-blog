@@ -1,0 +1,22 @@
+<div class="container">
+  <h1>New post</h1>
+  <form class="my-4" (submit)="createPost($event)">
+    <div class="mb-3">
+      <label for="postTitle" class="form-label">Title</label>
+      <input type="text" class="form-control" id="postTitle" autocomplete="off">
+    </div>
+    <div class="mb-3">
+      <label for="postPicture" class="form-label">Picture url</label>
+      <input type="text" class="form-control" id="postPicture" autocomplete="off">
+    </div>
+    <div class="mb-3">
+      <label for="postAuthorUsername" class="form-label">Author username</label>
+      <input type="text" class="form-control" id="postAuthorUsername" autocomplete="off">
+    </div>
+    <div class="mb-3">
+      <label for="postText" class="form-label">Text</label>
+      <textarea class="form-control" id="postText" rows="10"></textarea>
+    </div>
+    <button type="submit" class="btn btn-dark">Create post</button>
+  </form>
+</div>

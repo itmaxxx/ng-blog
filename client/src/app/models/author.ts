@@ -4,8 +4,8 @@ export class Author {
   picture: string;
   about: string;
 
-  constructor() {
-    this.username = 'null';
+  constructor(username: string = "null") {
+    this.username = username;
     this.fullname = 'null';
     this.picture = 'null';
     this.about = 'null';
