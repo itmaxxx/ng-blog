@@ -1,0 +1,15 @@
+<div class="card">
+  <div class="card-body">
+    <form (submit)="createComment($event)">
+      <div class="mb-3">
+        <label for="commentAuthorUsername" class="form-label">Username</label>
+        <input type="text" class="form-control" id="commentAuthorUsername" autocomplete="off">
+      </div>
+      <div class="mb-3">
+        <label for="commentText" class="form-label">Text</label>
+        <textarea class="form-control" id="commentText" rows="3"></textarea>
+      </div>
+      <button type="submit" class="btn btn-dark">Comment</button>
+    </form>
+  </div>
+</div>
